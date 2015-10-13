@@ -5,6 +5,8 @@
 
 using namespace std;
 
+void get_plugboard(int index, char **args);
+
 int main(int argc, char **argv) {
 
   // If there are no arguments to the program, exit 1
@@ -13,6 +15,27 @@ int main(int argc, char **argv) {
     exit(1);
   }
 
-  cout << "TODO: implement an Enigma machine" << endl;
+  // Print out information about the plugboard
+  get_plugboard(argc - 1, argv);
+
   return 0;
+}
+
+void get_plugboard(int index, char **args) {
+  // Initialise
+  ifstream plugboard(args[index]);
+  string line;
+
+  if (!plugboard.is_open()) {
+    cout << args[index] << " could not be opened. Does it exist? Is it an alien?" << endl;
+    exit(1);
+  }
+
+  cout << "Content of file:" << endl << "-----START----------" << endl;
+  while (getline(plugboard, line)) {
+    cout << line;
+  }
+  cout << "-----END------------" << endl;
+
+  plugboard.close();
 }
