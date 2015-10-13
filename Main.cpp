@@ -6,6 +6,7 @@
 using namespace std;
 
 void get_plugboard(int index, char **args);
+void get_rotors(int index_s, int index_f, char **args);
 
 int main(int argc, char **argv) {
 
