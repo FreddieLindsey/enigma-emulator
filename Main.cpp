@@ -1,4 +1,5 @@
 // skeleton C++ file, you will need to edit this and other files to implement your enigma machine
+#include <cstdlib>
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
