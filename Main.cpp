@@ -31,7 +31,9 @@ int main(int argc, char **argv) {
     get_rotor(i, argv);
   }
 
-  em->receive('a');
+  em->receive('a'); // Proof of concept. TODO: Delete
+
+  delete(em);
 
   return 0;
 }
