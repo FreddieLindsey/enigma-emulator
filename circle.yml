@@ -1,3 +1,7 @@
+dependencies:
+  pre:
+    - sudo apt-get install g++-4.8
+
 test:
   override:
     - ./tests.py
