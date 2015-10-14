@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
+#include <memory>
 
 #include "EnigmaMachine.hpp"
 
@@ -21,7 +22,7 @@ int main(int argc, char **argv) {
   }
 
   // Create an empty Enigma Machine
-  EnigmaMachine* em = new EnigmaMachine();
+  unique_ptr<EnigmaMachine> em (new EnigmaMachine());
 
   // Print out information about the plugboard
   get_plugboard(argc - 1, argv);
@@ -33,9 +34,6 @@ int main(int argc, char **argv) {
   }
 
   em->receive('a'); // Proof of concept. TODO: Delete
-
-  // Memory clean up
-  delete(em);
 
   return 0;
 }
