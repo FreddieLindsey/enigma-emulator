@@ -14,7 +14,7 @@ int main(int argc, char **argv) {
   // If there are no arguments to the program, exit 1
   if (argc <= 1) {
     cout << "Usage: enigma [rotor1.rot rotor2.rot ...] plugboard.pb" << endl;
-    std::exit(1);
+    exit(1);
   }
 
   // Print out information about the plugboard
@@ -30,7 +30,7 @@ void get_plugboard(int index, char **args) {
 
   if (!plugboard.is_open()) {
     cout << args[index] << " could not be opened. Does it exist? Is it an alien?" << endl;
-    std::exit(1);
+    exit(1);
   }
 
   cout << "Content of file:" << endl << "-----START----------" << endl;
