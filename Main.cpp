@@ -20,6 +20,7 @@ int main(int argc, char **argv) {
     exit(1);
   }
 
+  // Create an empty Enigma Machine
   EnigmaMachine* em = new EnigmaMachine();
 
   // Print out information about the plugboard
@@ -33,6 +34,7 @@ int main(int argc, char **argv) {
 
   em->receive('a'); // Proof of concept. TODO: Delete
 
+  // Memory clean up
   delete(em);
 
   return 0;
