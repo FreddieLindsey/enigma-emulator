@@ -1,6 +1,7 @@
 dependencies:
   pre:
     - sudo apt-get install g++-4.8
+    - sudo ln -sf /usr/bin/g++-4.8 /usr/bin/g++
 
 test:
   override:
