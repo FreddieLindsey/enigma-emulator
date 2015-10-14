@@ -5,6 +5,8 @@
 #include <iostream>
 #include <fstream>
 
+#include "EnigmaMachine.hpp"
+
 using namespace std;
 
 void get_plugboard(int index, char **args);
@@ -18,6 +20,8 @@ int main(int argc, char **argv) {
     exit(1);
   }
 
+  EnigmaMachine* em = new EnigmaMachine();
+
   // Print out information about the plugboard
   get_plugboard(argc - 1, argv);
 
@@ -26,6 +30,8 @@ int main(int argc, char **argv) {
   for (int i = 1; i < argc - 1; i++) {
     get_rotor(i, argv);
   }
+
+  em->receive('a');
 
   return 0;
 }
