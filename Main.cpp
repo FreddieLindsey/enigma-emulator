@@ -1,5 +1,6 @@
 // skeleton C++ file, you will need to edit this and other files to implement your enigma machine
 #include <cstdlib>
+#include <cstring>
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
@@ -56,9 +57,11 @@ void get_rotor(int index, char **args) {
   if (!rotor.is_open()) {
     cout << args[index] << " could not be opened. Does it exist? Is it an alien?" << endl;
     exit(1);
+  } else {
+    cout << "Rotor " << index << ":\t" << args[index] << endl;
   }
 
-  cout << "Content for rotor " << index << ":" << endl << "-----START----------" << endl;
+  cout << "-----START----------" << endl;
   while (getline(rotor, line)) {
     cout << line;
   }
