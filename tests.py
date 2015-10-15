@@ -12,7 +12,7 @@ basic_test_data = [
 
   # minimal config checking
 
-  # ("Minimal Config Test", "", ["plugboards/null.pb"], "", "PASS"),
+  ("Minimal Config Test", "", ["plugboards/null.pb"], "", "PASS"),
 
   # basic IO checking
 
@@ -30,7 +30,7 @@ basic_test_data = [
 advanced_test_data = [
   # full reflector functionality checking
 
-  # ("Full Reflector Test", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", ["plugboards/null.pb"] ,"NOPQRSTUVWXYZABCDEFGHIJKLM", "PASS"),
+  ("Full Reflector Test", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", ["plugboards/null.pb"] ,"NOPQRSTUVWXYZABCDEFGHIJKLM", "PASS"),
 
   # full plugboard functionality checking
 
