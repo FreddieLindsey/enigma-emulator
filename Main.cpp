@@ -1,13 +1,4 @@
-// skeleton C++ file, you will need to edit this and other files to implement your enigma machine
-#include <cstdlib>
-#include <cstring>
-#include <stdexcept>
-#include <iostream>
-#include <fstream>
-#include <memory>
-#include <wctype.h>
-
-#include "EnigmaMachine.hpp"
+#include "Main.hpp"
 
 using namespace std;
 
@@ -33,6 +24,7 @@ int main(int argc, char **argv) {
     get_rotor(i, argv);
   }
 
+  // Send each character from STD IN to the EnigmaMachine to process
   char c;
   while (cin >> c) {
     if (!iswspace(c)) em->receive(c);
@@ -42,11 +34,13 @@ int main(int argc, char **argv) {
   return 0;
 }
 
+// Gets information about the plugboard, and prints errors to cout
 void get_plugboard(int index, char **args) {
   // Initialise
   ifstream plugboard(args[index]);
   string line;
 
+  // Ensure the plugboard could be opened
   if (!plugboard.is_open()) {
     cout << args[index] << " could not be opened. Does it exist? Is it an alien?" << endl;
     exit(1);
@@ -55,11 +49,13 @@ void get_plugboard(int index, char **args) {
   plugboard.close();
 }
 
+// Gets information about the rotor, and prints errors to cout
 void get_rotor(int index, char **args) {
   // Initialise
   ifstream rotor(args[index]);
   string line;
 
+  // Ensure the rotor could be opened
   if (!rotor.is_open()) {
     cout << args[index] << " could not be opened. Does it exist? Is it an alien?" << endl;
     exit(1);
