@@ -1,13 +1,4 @@
-// skeleton C++ file, you will need to edit this and other files to implement your enigma machine
-#include <cstdlib>
-#include <cstring>
-#include <stdexcept>
-#include <iostream>
-#include <fstream>
-#include <memory>
-#include <wctype.h>
-
-#include "EnigmaMachine.hpp"
+#include "Main.hpp"
 
 using namespace std;
 
