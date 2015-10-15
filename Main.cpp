@@ -26,14 +26,20 @@ int main(int argc, char **argv) {
   unique_ptr<EnigmaMachine> em (new EnigmaMachine());
 
   // Print out information about the plugboard
+  cout << endl;
   get_plugboard(argc - 1, argv);
+
+  cout << endl << endl;
 
   // Print out information about the rotors
   cout << "There are " << argc - 2 << " rotors. See below:" << endl;
   for (int i = 1; i < argc - 1; i++) {
+    cout << endl;
     get_rotor(i, argv);
   }
+  cout << endl;
 
+  cout << "OUTPUT:\t\t";
   char c;
   while (cin >> c) {
     if (!iswspace(c)) em->receive(c);
@@ -53,7 +59,7 @@ void get_plugboard(int index, char **args) {
     exit(1);
   }
 
-  cout << "Content of file:" << endl << "-----START----------" << endl;
+  cout << "Plugboard:" << endl << "-----START----------" << endl;
   while (getline(plugboard, line)) {
     cout << line;
   }
