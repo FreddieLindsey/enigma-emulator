@@ -25,26 +25,19 @@ int main(int argc, char **argv) {
   // Create an empty Enigma Machine
   unique_ptr<EnigmaMachine> em (new EnigmaMachine());
 
-  // Print out information about the plugboard
-  cout << endl;
+  // Get information about the plugboard
   get_plugboard(argc - 1, argv);
 
-  cout << endl << endl;
-
-  // Print out information about the rotors
-  cout << "There are " << argc - 2 << " rotors. See below:" << endl;
+  // Get information about the rotors
   for (int i = 1; i < argc - 1; i++) {
-    cout << endl;
     get_rotor(i, argv);
   }
-  cout << endl;
 
-  cout << "OUTPUT:\t\t";
   char c;
   while (cin >> c) {
     if (!iswspace(c)) em->receive(c);
   }
-  cout << endl;
+  cout << endl; // Return prompt on new line
 
   return 0;
 }
@@ -59,12 +52,6 @@ void get_plugboard(int index, char **args) {
     exit(1);
   }
 
-  cout << "Plugboard:" << endl << "-----START----------" << endl;
-  while (getline(plugboard, line)) {
-    cout << line;
-  }
-  cout << endl << "-----END------------" << endl;
-
   plugboard.close();
 }
 
@@ -76,15 +63,7 @@ void get_rotor(int index, char **args) {
   if (!rotor.is_open()) {
     cout << args[index] << " could not be opened. Does it exist? Is it an alien?" << endl;
     exit(1);
-  } else {
-    cout << "Rotor " << index << ":\t" << args[index] << endl;
   }
-
-  cout << "-----START----------" << endl;
-  while (getline(rotor, line)) {
-    cout << line;
-  }
-  cout << endl << "-----END------------" << endl;
 
   rotor.close();
 }
