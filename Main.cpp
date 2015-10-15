@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <memory>
+#include <wctype.h>
 
 #include "EnigmaMachine.hpp"
 
@@ -33,7 +34,11 @@ int main(int argc, char **argv) {
     get_rotor(i, argv);
   }
 
-  em->receive('a'); // Proof of concept. TODO: Delete
+  char c;
+  while (cin >> c) {
+    if (!iswspace(c)) em->receive(c);
+  }
+  cout << endl;
 
   return 0;
 }
