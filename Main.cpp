@@ -12,17 +12,21 @@ int main(int argc, char **argv) {
     exit(1);
   }
 
-  // Create an empty Enigma Machine
-  unique_ptr<EnigmaMachine> em (new EnigmaMachine());
+  // ASSUMED PARAMETERS
+  #define ALPHABET_SIZE 26
 
   // Get information about the plugboard
-  string plugboard = get_string_from_file(argv[argc - 1]);
+  vector<int> map(ALPHABET_SIZE);
+  PlugBoard *pb = new PlugBoard(get_string_from_file(argv[argc - 1]), map);
 
   // Get information about the rotors
   vector<string> rotors(argc - 1);
   for (int i = 1; i < argc - 1; i++) {
     rotors[i-1] = get_string_from_file(argv[i]);
   }
+
+  // Create an empty Enigma Machine
+  unique_ptr<EnigmaMachine> em (new EnigmaMachine(*pb, rotors));
 
   // Send each character from STD IN to the EnigmaMachine to process
   char c;

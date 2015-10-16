@@ -10,7 +10,7 @@ exit_code = 0
 basic_test_data = [
   # config error checking
 
-  # ("No Such Plugboard Config File Test", "", ["plugboards/nulll.pb"], "", "FAIL"),
+  ("No Such Plugboard Config File Test", "", ["plugboards/nulll.pb"], "", "FAIL"),
 
   # minimal config checking
 
@@ -18,12 +18,12 @@ basic_test_data = [
 
   # basic IO checking
 
-  # ("Basic Rotor I/O Test", "A",["rotors/I.rot","plugboards/I.pb"], "N", "PASS"),
-  # ("Invalid Input Test", "a", ["rotors/I.rot","plugboards/I.pb"], "N", "FAIL"),
+  ("Basic Rotor I/O Test", "A",["rotors/I.rot","plugboards/I.pb"], "N", "PASS"),
+  ("Invalid Input Test", "a", ["rotors/I.rot","plugboards/I.pb"], "N", "FAIL"),
 
   # first char map checking
 
-  # ("First Char Mapping Test 1", "A", ["rotors/I.rot","plugboards/null.pb"], "N", "PASS"),
+  ("First Char Mapping Test 1", "A", ["rotors/I.rot","plugboards/null.pb"], "N", "PASS"),
   # ("First Char Mapping Test 2", "B", ["rotors/II.rot","plugboards/I.pb"], "M", "PASS"),
   # ("First Char Mapping Test 3", "C", ["rotors/VII.rot","plugboards/I.pb"], "D", "PASS"),
   # ("First Char Mapping Test 4", "D", ["rotors/III.rot","rotors/VII.rot","plugboards/II.pb"], "X", "PASS"),
@@ -36,8 +36,8 @@ advanced_test_data = [
 
   # full plugboard functionality checking
 
-  # ("Full Plugbaord Test 1", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", ["plugboards/I.pb"], "NOPQRSTUMWXYIABCDEFGHZJKLV", "PASS"),
-  # ("Full Plugbaord Test 2", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", ["plugboards/II.pb"], "NOPQISTUEWMYKABCDVFGHRJZLX", "PASS"),
+  ("Full Plugbaord Test 1", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", ["plugboards/I.pb"], "NOPQRSTUMWXYIABCDEFGHZJKLV", "PASS"),
+  ("Full Plugbaord Test 2", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", ["plugboards/II.pb"], "NOPQISTUEWMYKABCDVFGHRJZLX", "PASS"),
 
   # full basic rotor functionality checking
 
