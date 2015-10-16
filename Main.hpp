@@ -7,10 +7,14 @@
   #include <stdexcept>
   #include <iostream>
   #include <fstream>
+  #include <vector>
   #include <memory>
   #include <wctype.h>
 
   // CLASSES
   #include "EnigmaMachine.hpp"
+
+  // FUNCTIONS
+  std::string get_string_from_file(char* filename);
 
 #endif
