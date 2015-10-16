@@ -2,10 +2,9 @@
 
 using namespace std;
 
-void get_plugboard(int index, char **args);
-void get_rotor(int index, char **args);
-
 int main(int argc, char **argv) {
+
+  // COMMAND LINE CHECKS
 
   // If there are no arguments to the program, exit 1
   if (argc <= 1) {
@@ -17,11 +16,12 @@ int main(int argc, char **argv) {
   unique_ptr<EnigmaMachine> em (new EnigmaMachine());
 
   // Get information about the plugboard
-  get_plugboard(argc - 1, argv);
+  string plugboard = get_string_from_file(argv[argc - 1]);
 
   // Get information about the rotors
+  vector<string> rotors(argc - 1);
   for (int i = 1; i < argc - 1; i++) {
-    get_rotor(i, argv);
+    rotors[i-1] = get_string_from_file(argv[i]);
   }
 
   // Send each character from STD IN to the EnigmaMachine to process
@@ -34,32 +34,27 @@ int main(int argc, char **argv) {
   return 0;
 }
 
-// Gets information about the plugboard, and prints errors to cout
-void get_plugboard(int index, char **args) {
+// Gets information from the file, printing errors to cout.
+// Returns the string from the whole file.
+string get_string_from_file(char* filename) {
   // Initialise
-  ifstream plugboard(args[index]);
-  string line;
+  ifstream pb(filename);
+  string content;
 
   // Ensure the plugboard could be opened
-  if (!plugboard.is_open()) {
-    cout << args[index] << " could not be opened. Does it exist? Is it an alien?" << endl;
+  if (!pb.is_open()) {
+    cout << filename << " could not be opened. Does it exist? Is it an alien?" << endl;
     exit(1);
   }
 
-  plugboard.close();
-}
+  // Read the data from the file
+  pb.seekg (0, pb.end);
+  content.reserve(pb.tellg());
+  pb.seekg(0, pb.beg);
+  content.assign((std::istreambuf_iterator<char>(pb)),
+                  std::istreambuf_iterator<char>());
 
-// Gets information about the rotor, and prints errors to cout
-void get_rotor(int index, char **args) {
-  // Initialise
-  ifstream rotor(args[index]);
-  string line;
+  pb.close();
 
-  // Ensure the rotor could be opened
-  if (!rotor.is_open()) {
-    cout << args[index] << " could not be opened. Does it exist? Is it an alien?" << endl;
-    exit(1);
-  }
-
-  rotor.close();
+  return content;
 }
