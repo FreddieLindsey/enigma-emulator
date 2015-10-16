@@ -5,6 +5,8 @@ import sys
 
 #-------------- test cases --------------#
 
+exit_code = 0
+
 basic_test_data = [
   # config error checking
 
@@ -103,6 +105,7 @@ def run_tests(test_data, check_sha):
       actual = sha_call.communicate(actual)[0].strip('\n')
 
     if test_type == "PASS" and ( actual != expected or status != 0 or (inverse_error and not check_sha) ):
+      exit_code = 1
       print "\nFAILED: ", test_name
       print "(Your enigma program should pass this test case)"
       print "  config:",
@@ -146,7 +149,7 @@ print output[0]
 
 if status != 0:
   print "Failed to compile, automated test aborted."
-  sys.exit(-1)
+  sys.exit(1)
 
 #check binary was created and config files exist
 check("enigma")
@@ -169,3 +172,5 @@ print "Automated Test Summary:"
 print "  Basic Tests:     ", basic_results[0], "/", basic_results[1]
 print "  Advanced Tests:  ", adv_results[0], "/", adv_results[1]
 print "  Robustness Tests:", robust_results[0], "/", robust_results[1]
+
+sys.exit(exit_code)
