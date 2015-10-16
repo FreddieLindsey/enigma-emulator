@@ -13,6 +13,7 @@
 
   // CLASSES
   #include "EnigmaMachine.hpp"
+  #include "PlugBoard.hpp"
 
   // FUNCTIONS
   std::string get_string_from_file(char* filename);

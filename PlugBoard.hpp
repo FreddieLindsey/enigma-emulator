@@ -12,7 +12,7 @@
     private:
       vector<int> map_;
     public:
-      PlugBoard(string file_content);
+      PlugBoard(string file_content, vector<int>& map);
       void map(char& c);
   };
 

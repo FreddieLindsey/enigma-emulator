@@ -10,6 +10,7 @@
       PlugBoard pb;
       Reflector refl;
     public:
+      EnigmaMachine(PlugBoard& plugboard, vector<string> rotors);
       void receive(const char& c);
   };
 
