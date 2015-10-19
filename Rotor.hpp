@@ -6,10 +6,10 @@
   using namespace std;
 
   class Rotor {
-    private:
-
     public:
       Rotor(string file_content);
+      void receive(char& c);
+      bool rotate(void);
   };
 
 #endif

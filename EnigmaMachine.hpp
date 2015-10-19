@@ -18,6 +18,7 @@
 
     public:
       EnigmaMachine(int ALPHABET_SIZE, string& plugboard, vector<string>& rotors);
+      ~EnigmaMachine();
       void receive(char& c);
   };
 

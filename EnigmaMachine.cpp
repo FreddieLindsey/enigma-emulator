@@ -2,9 +2,15 @@
 
 EnigmaMachine::EnigmaMachine(int ALPHABET_SIZE, string& plugboard, vector<string>& rotors)
   : pb(plugboard, ALPHABET_SIZE), rts(rotors.size()) {
-    for (size_t i = 0; i < rts.size(); i++) {
-      rts[i] = new Rotor(rotors[i]);
-    }
+  for (size_t i = 0; i < rts.size(); i++) {
+    rts[i] = new Rotor(rotors[i]);
+  }
+}
+
+EnigmaMachine::~EnigmaMachine() {
+  for (size_t i = 0; i < rts.size(); i++) {
+    delete(rts[i]);
+  }
 }
 
 void EnigmaMachine::receive(char& c) {
@@ -37,7 +43,7 @@ void EnigmaMachine::rotor_encode_decode(char& c, bool encode_decode) {
   bool continue_ = true;
 
   while (continue_) {
-    // iter.receive(c)
+    (*iter)->receive(c);
     iter += encode_decode ? 1 : -1 ;
     continue_ = encode_decode ?
       iter == this->rts.end() :
@@ -50,7 +56,7 @@ void EnigmaMachine::rotate_rotors(void) {
 
   bool rotate_next = true;
   while (iter != this->rts.end() && rotate_next) {
-    // rotate_next = iter.rotate();
+    rotate_next = (*iter)->rotate();
     iter++;
   }
 }
