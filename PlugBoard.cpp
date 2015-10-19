@@ -2,15 +2,15 @@
 
 using namespace std;
 
-PlugBoard::PlugBoard(string file_content, vector<int>& map)
-  : map_(map) {
+PlugBoard::PlugBoard(string file_content, int ALPHABET_SIZE)
+  : map_(ALPHABET_SIZE) {
   // Initialise
   stringstream cnt(file_content);
   string num1, num2;
   char delim = ' ';
 
   // Reset map
-  for (size_t i = 0; i < map.size(); i++) {
+  for (size_t i = 0; i < map_.size(); i++) {
     this->map_[i] = i;
   }
 

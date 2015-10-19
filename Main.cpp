@@ -16,13 +16,21 @@ int main(int argc, char **argv) {
   #define ALPHABET_SIZE 26
 
   // Get information about the plugboard
+<<<<<<< Updated upstream
   vector<int> map(ALPHABET_SIZE);
   PlugBoard *pb = new PlugBoard(get_string_from_file(argv[argc - 1]), map);
+=======
+  unique_ptr<PlugBoard> pb (new PlugBoard(get_string_from_file(argv[argc - 1]), ALPHABET_SIZE));
+>>>>>>> Stashed changes
 
   // Get information about the rotors
   vector<string> rotors(argc - 1);
   for (int i = 1; i < argc - 1; i++) {
+<<<<<<< Updated upstream
     rotors[i-1] = get_string_from_file(argv[i]);
+=======
+    rotors[i-1] = new Rotor(get_string_from_file(argv[i]), ALPHABET_SIZE);
+>>>>>>> Stashed changes
   }
 
   // Create an empty Enigma Machine
