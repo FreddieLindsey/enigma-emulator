@@ -2,6 +2,7 @@
 #define EnigmaMachine_h
 
   #include <iostream>
+  #include <memory>
   #include "PlugBoard.hpp"
   #include "Rotor.hpp"
   #include "Reflector.hpp"
