@@ -1,20 +1,18 @@
 #include "EnigmaMachine.hpp"
 
-EnigmaMachine::EnigmaMachine(PlugBoard& plugboard, vector<string> rotors)
-  : pb(plugboard) {}
+EnigmaMachine::EnigmaMachine(int ALPHABET_SIZE, string plugboard)
+  : pb(plugboard, ALPHABET_SIZE) {}
 
-void EnigmaMachine::receive(const char& c) {
-  char character_encode(c);
-
+void EnigmaMachine::receive(char& c) {
   // FORWARDS DIRECTION OF TRAVEL
-  pb.map(character_encode);
+  pb.map(c);
 
   // REFLECTION
-  refl.reflect(character_encode);
+  refl.reflect(c);
 
   // BACKWARDS DIRECTION OF TRAVEL
-  pb.map(character_encode);
+  pb.map(c);
 
   // OUTPUT ENCODED CHARACTER
-  std::cout << character_encode;
+  std::cout << c;
 }

@@ -2,20 +2,16 @@
 #define Main_h
 
   // LIBRARIES
-  #include <cstdlib>
-  #include <cstring>
-  #include <stdexcept>
-  #include <iostream>
   #include <fstream>
-  #include <vector>
   #include <memory>
-  #include <wctype.h>
 
   // CLASSES
   #include "EnigmaMachine.hpp"
   #include "PlugBoard.hpp"
 
+  using namespace std;
+
   // FUNCTIONS
-  std::string get_string_from_file(char* filename);
+  void get_string_from_file(char* filename, string& out);
 
 #endif
