@@ -3,7 +3,6 @@
 
   #include <iostream>
   #include <sstream>
-  #include <tuple>
   #include <vector>
 
   using namespace std;
@@ -12,7 +11,7 @@
     private:
       vector<int> map_;
     public:
-      PlugBoard(string file_content, vector<int>& map);
+      PlugBoard(string file_content, int ALPHABET_SIZE);
       void map(char& c);
   };
 

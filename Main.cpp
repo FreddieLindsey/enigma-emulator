@@ -1,7 +1,5 @@
 #include "Main.hpp"
 
-using namespace std;
-
 int main(int argc, char **argv) {
 
   // COMMAND LINE CHECKS
@@ -12,21 +10,16 @@ int main(int argc, char **argv) {
     exit(1);
   }
 
-  // ASSUMED PARAMETERS
+  // ASSUMED PARAMETERS AND INIT
   #define ALPHABET_SIZE 26
-
-  // Get information about the plugboard
-  vector<int> map(ALPHABET_SIZE);
-  PlugBoard *pb = new PlugBoard(get_string_from_file(argv[argc - 1]), map);
+  string file_content;
 
   // Get information about the rotors
-  vector<string> rotors(argc - 1);
-  for (int i = 1; i < argc - 1; i++) {
-    rotors[i-1] = get_string_from_file(argv[i]);
-  }
+  // TODO
 
   // Create an empty Enigma Machine
-  unique_ptr<EnigmaMachine> em (new EnigmaMachine(*pb, rotors));
+  get_string_from_file(argv[argc - 1], file_content);
+  shared_ptr<EnigmaMachine> em (new EnigmaMachine(ALPHABET_SIZE, file_content));
 
   // Send each character from STD IN to the EnigmaMachine to process
   char c;
@@ -40,25 +33,22 @@ int main(int argc, char **argv) {
 
 // Gets information from the file, printing errors to cout.
 // Returns the string from the whole file.
-string get_string_from_file(char* filename) {
+void get_string_from_file(char* filename, string& out) {
   // Initialise
-  ifstream pb(filename);
-  string content;
+  ifstream file_input(filename);
 
   // Ensure the plugboard could be opened
-  if (!pb.is_open()) {
+  if (!file_input.is_open()) {
     cout << filename << " could not be opened. Does it exist? Is it an alien?" << endl;
     exit(1);
   }
 
   // Read the data from the file
-  pb.seekg (0, pb.end);
-  content.reserve(pb.tellg());
-  pb.seekg(0, pb.beg);
-  content.assign((std::istreambuf_iterator<char>(pb)),
-                  std::istreambuf_iterator<char>());
+  file_input.seekg (0, file_input.end);
+  out.reserve(file_input.tellg());
+  file_input.seekg(0, file_input.beg);
+  out.assign((std::istreambuf_iterator<char>(file_input)),
+              std::istreambuf_iterator<char>());
 
-  pb.close();
-
-  return content;
+  file_input.close();
 }

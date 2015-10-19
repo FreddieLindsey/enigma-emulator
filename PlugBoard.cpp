@@ -2,25 +2,24 @@
 
 using namespace std;
 
-PlugBoard::PlugBoard(string file_content, vector<int>& map)
-  : map_(map) {
+PlugBoard::PlugBoard(string file_content, int ALPHABET_SIZE)
+  : map_(ALPHABET_SIZE) {
   // Initialise
-  stringstream cnt(file_content);
+  istringstream content(file_content);
   string num1, num2;
   char delim = ' ';
 
   // Reset map
-  for (size_t i = 0; i < map.size(); i++) {
+  for (size_t i = 0; i < map_.size(); i++) {
     this->map_[i] = i;
   }
 
   // Process string
-  while (getline(cnt, num1, delim) && getline(cnt, num2, delim)) {
+  while (getline(content, num1, delim) && getline(content, num2, delim)) {
     int uno = stoi(num1); int dos = stoi(num2);
     this->map_[uno] = dos;
     this->map_[dos] = uno;
   }
-
 }
 
 void PlugBoard::map(char& c) {
@@ -30,6 +29,5 @@ void PlugBoard::map(char& c) {
   } else if (c >= 'a' && c <= 'z') {
     base_letter = 'a';
   } else { return; }
-  int letter = c - int(base_letter);
-  c = base_letter + this->map_[letter];
+  c = base_letter + this->map_[c - int(base_letter)];
 }
