@@ -1,7 +1,11 @@
 #include "EnigmaMachine.hpp"
 
 EnigmaMachine::EnigmaMachine(int ALPHABET_SIZE, string& plugboard, vector<string>& rotors)
-  : pb(plugboard, ALPHABET_SIZE) {}
+  : pb(plugboard, ALPHABET_SIZE), rts(rotors.size()) {
+    for (size_t i = 0; i < rts.size(); i++) {
+      rts[i] = new Rotor(rotors[i]);
+    }
+}
 
 void EnigmaMachine::receive(char& c) {
   // FORWARDS DIRECTION OF TRAVEL
