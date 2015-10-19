@@ -15,12 +15,12 @@ int main(int argc, char **argv) {
   string file_content;
 
   // Get information about the rotors
-  vector<string> rotors(argc - 1);
-  for (int i = 1; i < argc - 1; i++) {
-    get_string_from_file(argv[i], rotors[i-1]);
+  vector<string> rotors(argc - 2);
+  for (size_t i = 0; i < rotors.size(); i++) {
+    get_string_from_file(argv[i+1], rotors[i]);
   }
 
-  // Create an empty Enigma Machine
+  // // Create an empty Enigma Machine
   get_string_from_file(argv[argc - 1], file_content);
   shared_ptr<EnigmaMachine> em (new EnigmaMachine(ALPHABET_SIZE, file_content, rotors));
 
