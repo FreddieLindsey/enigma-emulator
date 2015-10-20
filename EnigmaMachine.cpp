@@ -37,7 +37,7 @@ void EnigmaMachine::receive(char& c) {
 }
 
 void EnigmaMachine::rotor_encode_decode(char& c, bool encode_decode) {
-  int count = 0;
+  int count = encode_decode ? 0 : rts.size() - 1;
 
   while (count < (int) rts.size() && count >= 0) {
     if (encode_decode) {
