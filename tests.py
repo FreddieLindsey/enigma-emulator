@@ -65,7 +65,7 @@ moby = unzip_call.communicate()[0]
 robust_test_data = [
   # robustness testing (will only pass if the implementation is "spot on")
 
-  # ("Robustness Test 1", moby, ["rotors/III.rot", "rotors/VII.rot", "plugboards/II.pb"],  "0315f65c4d79ad398a2c59ab638b81ba8fe34480bb8cce49cbe3908065c12527  -", "PASS")
+  ("Robustness Test 1", moby, ["rotors/III.rot", "rotors/VII.rot", "plugboards/II.pb"],  "0315f65c4d79ad398a2c59ab638b81ba8fe34480bb8cce49cbe3908065c12527  -", "PASS")
 ]
 
 
