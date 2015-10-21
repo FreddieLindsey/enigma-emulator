@@ -30,7 +30,7 @@ void EnigmaMachine::receive(char& c) {
   pb.map(c);
 
   // OUTPUT ENCODED CHARACTER
-  cout << c << endl;
+  cout << c;
 
   // ROTATE ROTORS
   rotate_rotors();
