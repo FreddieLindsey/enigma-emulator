@@ -19,8 +19,6 @@ void Rotor::encode(char& c) {
   // Intialise
   int ALPHABET_SIZE = map_.size();
   char base_letter;
-
-  // Determine letter case and validity
   getBaseCharacter(base_letter, c);
   if (base_letter == '!') return; // TODO: Use exception handling
 
@@ -33,8 +31,6 @@ void Rotor::decode(char& c) {
   // Intialise
   int ALPHABET_SIZE = map_.size();
   char base_letter;
-
-  // Determine letter case and validity
   getBaseCharacter(base_letter, c);
   if (base_letter == '!') return; // TODO: Use exception handling
 
