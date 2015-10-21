@@ -11,7 +11,7 @@ int main(int argc, char **argv) {
   }
 
   // ASSUMED PARAMETERS AND INIT
-  #define ALPHABET_SIZE 26
+  #define ALPHABET_SIZE 5
   string file_content;
 
   // Get information about the rotors

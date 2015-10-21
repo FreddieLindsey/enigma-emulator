@@ -9,9 +9,9 @@
 
   class Rotor {
     private:
-      vector<int> map_forwards;
-      vector<int> map_backward;
-      // int offset;
+      vector<int> map_;
+      int offset;
+      void getBaseCharacter(char& base, const char c);
 
     public:
       Rotor(string file_content, int ALPHABET_SIZE);

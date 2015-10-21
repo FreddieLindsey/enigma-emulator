@@ -97,6 +97,7 @@ def run_tests(test_data, check_sha):
     output = inverse_call.communicate(actual)
 
     inverse = output[0].strip('\n')
+    print inverse
     inverse_error = (inverse != message)
 
     if check_sha:
