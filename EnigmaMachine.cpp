@@ -30,30 +30,29 @@ void EnigmaMachine::receive(char& c) {
   pb.map(c);
 
   // OUTPUT ENCODED CHARACTER
-  cout << c;
+  cout << c << endl;
 
   // ROTATE ROTORS
   rotate_rotors();
 }
 
 void EnigmaMachine::rotor_encode_decode(char& c, bool encode_decode) {
-  int count = encode_decode ? 0 : rts.size() - 1;
+  vector<Rotor*>::iterator iter = encode_decode ? rts.begin() : rts.end() - 1;
 
-  while (count < (int) rts.size() && count >= 0) {
-    if (encode_decode) {
-      rts[count]->encode(c);
+  while (iter >= rts.begin() && iter < rts.end()) {
+    if(encode_decode) {
+      (*iter)->encode(c); iter++;
     } else {
-      rts[count]->decode(c);
+      (*iter)->decode(c); iter--;
     }
-    count += encode_decode ? 1 : -1 ;
   }
 }
 
 void EnigmaMachine::rotate_rotors(void) {
-  vector<Rotor*>::iterator iter = this->rts.begin();
+  vector<Rotor*>::iterator iter = rts.begin();
 
   bool rotate_next = true;
-  while (iter != this->rts.end() && rotate_next) {
+  while (iter != rts.end() && rotate_next) {
     rotate_next = (*iter)->rotate();
     iter++;
   }
