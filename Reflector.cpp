@@ -1,6 +1,7 @@
 #include "Reflector.hpp"
 
-// Pre: Character is uppercase
+Reflector::Reflector(int ALPHABET_SIZE) : map_size(ALPHABET_SIZE) {}
+
 void Reflector::reflect(char& c) {
   char base_letter;
   if (c >= 'A' && c <= 'Z') {
@@ -8,5 +9,5 @@ void Reflector::reflect(char& c) {
   } else if (c >= 'a' && c <= 'z') {
     base_letter = 'a';
   } else { return; }
-  c = base_letter + ((c - int(base_letter) + 13) % 26);
+  c = base_letter + ((c - int(base_letter) + (map_size / 2)) % map_size);
 }

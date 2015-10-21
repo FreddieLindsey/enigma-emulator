@@ -2,7 +2,11 @@
 #define Reflector_h
 
   class Reflector {
+    private:
+      int map_size;
+
     public:
+      Reflector(int ALPHABET_SIZE);
       void reflect(char& c);
   };
 

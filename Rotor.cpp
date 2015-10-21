@@ -51,7 +51,7 @@ void Rotor::decode(char& c) {
   int letter = (position - offset + ALPHABET_SIZE) % ALPHABET_SIZE;
 
   // Retrieve output
-  c = base_letter + this->map_[letter];
+  c = char (base_letter + letter);
 }
 
 bool Rotor::rotate (void) {
