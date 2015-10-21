@@ -14,9 +14,14 @@ EnigmaMachine::~EnigmaMachine() {
 }
 
 void EnigmaMachine::receive(const char c) {
-  char base_letter;
-  int char_no = getBaseCharacter(base_letter, c);
-  if (char_no == -1) return; // TODO: Use exception handling
+  char base_letter; int char_no;
+  try {
+    char_no = getBaseCharacter(base_letter, c);
+  } catch (int n) {
+    if (n == 1) return; // INVALID character left untouched
+    cout << "UNKNOWN EXCEPTION OCCURRED" << endl;
+    exit(2);
+  }
 
   // FORWARDS DIRECTION OF TRAVEL
   pb.map(char_no);
@@ -71,5 +76,5 @@ int EnigmaMachine::getBaseCharacter(char& base_letter, const char c) {
     base_letter = 'a';
     return c - base_letter;
   }
-  return -1;
+  throw 1;
 }
