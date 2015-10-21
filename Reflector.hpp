@@ -7,7 +7,7 @@
 
     public:
       Reflector(int ALPHABET_SIZE);
-      void reflect(char& c);
+      void reflect(int& c);
   };
 
 #endif

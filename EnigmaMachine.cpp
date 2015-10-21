@@ -13,30 +13,35 @@ EnigmaMachine::~EnigmaMachine() {
   }
 }
 
-void EnigmaMachine::receive(char& c) {
+void EnigmaMachine::receive(const char c) {
+  char base_letter;
+  getBaseCharacter(base_letter, c);
+  if (base_letter == '!') return; // TODO: Use exception handling
+  int char_no = c - base_letter;
+
   // FORWARDS DIRECTION OF TRAVEL
-  pb.map(c);
+  pb.map(char_no);
 
   // THROUGH ROTORS, ENCODING
-  rotor_encode_decode(c, true);
+  rotor_encode_decode(char_no, true);
 
   // REFLECTION
-  refl.reflect(c);
+  refl.reflect(char_no);
 
   // THROUGH ROTORS, DECODING
-  rotor_encode_decode(c, false);
+  rotor_encode_decode(char_no, false);
 
   // BACKWARDS DIRECTION OF TRAVEL
-  pb.map(c);
+  pb.map(char_no);
 
   // OUTPUT ENCODED CHARACTER
-  cout << c;
+  cout << char(char_no + base_letter);
 
   // ROTATE ROTORS
   rotate_rotors();
 }
 
-void EnigmaMachine::rotor_encode_decode(char& c, bool encode_decode) {
+void EnigmaMachine::rotor_encode_decode(int& c, bool encode_decode) {
   vector<Rotor*>::iterator iter = encode_decode ? rts.begin() : rts.end() - 1;
 
   while (iter >= rts.begin() && iter < rts.end()) {
@@ -56,4 +61,16 @@ void EnigmaMachine::rotate_rotors(void) {
     rotate_next = (*iter)->rotate();
     iter++;
   }
+}
+
+void EnigmaMachine::getBaseCharacter(char& base, const char c) {
+  // Determine letter case and validity
+  if (c >= 'A' && c <= 'Z') {
+    base = 'A';
+  } else if (c >= 'a' && c <= 'z') {
+    base = 'a';
+  } else {
+    base = '!';
+  }
+  return;
 }

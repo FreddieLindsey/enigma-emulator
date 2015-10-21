@@ -9,14 +9,14 @@
 
   class Rotor {
     private:
-      vector<int> map_;
+      vector<int> map_encode;
+      vector<int> map_decode;
       int offset;
-      void getBaseCharacter(char& base, const char c);
 
     public:
       Rotor(string file_content, int ALPHABET_SIZE);
-      void encode(char& c);
-      void decode(char& c);
+      void encode(int& c);
+      void decode(int& c);
       bool rotate(void);
   };
 

@@ -13,13 +13,14 @@
       vector<Rotor*> rts;
       Reflector refl;
 
-      void rotor_encode_decode(char& c, bool encode_decode);
+      void rotor_encode_decode(int& c, bool encode_decode);
       void rotate_rotors(void);
+      void getBaseCharacter(char& base, const char c);
 
     public:
       EnigmaMachine(int ALPHABET_SIZE, string& plugboard, vector<string>& rotors);
       ~EnigmaMachine();
-      void receive(char& c);
+      void receive(const char c);
   };
 
 #endif
