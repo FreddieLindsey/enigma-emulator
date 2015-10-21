@@ -2,8 +2,12 @@
 #define Reflector_h
 
   class Reflector {
+    private:
+      int map_size;
+
     public:
-      void reflect(char& c);
+      Reflector(int ALPHABET_SIZE);
+      void reflect(int& c);
   };
 
 #endif

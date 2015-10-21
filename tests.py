@@ -24,9 +24,9 @@ basic_test_data = [
   # first char map checking
 
   ("First Char Mapping Test 1", "A", ["rotors/I.rot","plugboards/null.pb"], "N", "PASS"),
-  # ("First Char Mapping Test 2", "B", ["rotors/II.rot","plugboards/I.pb"], "M", "PASS"),
-  # ("First Char Mapping Test 3", "C", ["rotors/VII.rot","plugboards/I.pb"], "D", "PASS"),
-  # ("First Char Mapping Test 4", "D", ["rotors/III.rot","rotors/VII.rot","plugboards/II.pb"], "X", "PASS"),
+  ("First Char Mapping Test 2", "B", ["rotors/II.rot","plugboards/I.pb"], "M", "PASS"),
+  ("First Char Mapping Test 3", "C", ["rotors/VII.rot","plugboards/I.pb"], "D", "PASS"),
+  ("First Char Mapping Test 4", "D", ["rotors/III.rot","rotors/VII.rot","plugboards/II.pb"], "X", "PASS"),
 ]
 
 advanced_test_data = [
@@ -41,22 +41,22 @@ advanced_test_data = [
 
   # full basic rotor functionality checking
 
-  # ("Full Basic Rotor Test 1", "AAAAAAAAAAAAAAAAAAAAAAAAAA", ["rotors/I.rot", "plugboards/null.pb"], "NNNNNNNNNNNNNNNNNNNNNNNNNN", "PASS"),
-  # ("Full Basic Rotor Test 2", "AAAAAAAAAAAAAAAAAAAAAAAAAA", ["rotors/II.rot", "plugboards/null.pb"], "PLPLPLPLPLPLPLPLPLPLPLPLPL", "PASS"),
+  ("Full Basic Rotor Test 1", "AAAAAAAAAAAAAAAAAAAAAAAAAA", ["rotors/I.rot", "plugboards/null.pb"], "NNNNNNNNNNNNNNNNNNNNNNNNNN", "PASS"),
+  ("Full Basic Rotor Test 2", "AAAAAAAAAAAAAAAAAAAAAAAAAA", ["rotors/II.rot", "plugboards/null.pb"], "PLPLPLPLPLPLPLPLPLPLPLPLPL", "PASS"),
 
   # full complex rotor functionality checking
 
-  # ("Full Rotor Test 1", "AAAAAAAAAAAAAAAAAAAAAAAAAA", ["rotors/III.rot", "plugboards/null.pb"], "LLFORJEVOKWPPKRFJMGQVJMQUR", "PASS"),
-  # ("Full Rotor Test 2", "DDDDDDDDDDDDDDDDDDDDDDDDDD", ["rotors/IV.rot", "plugboards/null.pb"], "KYRVLIQWULYGVOAGPVAQGLIASM", "PASS"),
-  # ("Full Rotor Test 3", "KLKLKLKLKLKLKLKLKLKLKLKLKL", ["rotors/V.rot", "plugboards/null.pb"], "PKJSRUTBANMJIWVSRNMJISRVUQ", "PASS"),
+  ("Full Rotor Test 1", "AAAAAAAAAAAAAAAAAAAAAAAAAA", ["rotors/III.rot", "plugboards/null.pb"], "LLFORJEVOKWPPKRFJMGQVJMQUR", "PASS"),
+  ("Full Rotor Test 2", "DDDDDDDDDDDDDDDDDDDDDDDDDD", ["rotors/IV.rot", "plugboards/null.pb"], "KYRVLIQWULYGVOAGPVAQGLIASM", "PASS"),
+  ("Full Rotor Test 3", "KLKLKLKLKLKLKLKLKLKLKLKLKL", ["rotors/V.rot", "plugboards/null.pb"], "PKJSRUTBANMJIWVSRNMJISRVUQ", "PASS"),
 
   # full rotor cascade checking
 
-  # ("Rotor Cascade Test 1", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", ["rotors/I.rot", "rotors/II.rot", "plugboards/null.pb"], "LLLLLLLLLLLLLLLLLLLLLLLLLLPPPPPPPPPPPPPPPPPPPPPPPPPP", "PASS"),
-  # ("Rotor Cascade Test 2", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", ["rotors/I.rot", "rotors/II.rot", "plugboards/IV.pb"], "ZZZZZZZZZZZZZZZZZZZZZZZZZZXXXXXXXXXXXXXXXXXXXXXXXXXX", "PASS"),
-  # ("Rotor Cascade Test 3", "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ", ["rotors/II.rot", "rotors/II.rot", "plugboards/null.pb"], "NSPURWTYVAXCZEBGDIFKHMJOLQROTQVSXUZWBYDAFCHEJGLINKPM", "PASS"),
-  # ("Rotor Cascade Test 4", "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ", ["rotors/II.rot", "rotors/II.rot", "plugboards/III.pb"], "NQLWRUTCKVIYUEBGFXDKMJHRPSROPSVQIWGZBCQAFYMEHGNXLVTJ", "PASS"),
-  # ("Rotor Cascade Test 5", "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ", ["rotors/VI.rot", "rotors/IV.rot", "plugboards/II.pb"], "MGDSBKVCZTGFAGSJKPFDIZGIGMFHLWODQOXBJBWIPZHQMCZUDJSN", "PASS")
+  ("Rotor Cascade Test 1", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", ["rotors/I.rot", "rotors/II.rot", "plugboards/null.pb"], "LLLLLLLLLLLLLLLLLLLLLLLLLLPPPPPPPPPPPPPPPPPPPPPPPPPP", "PASS"),
+  ("Rotor Cascade Test 2", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", ["rotors/I.rot", "rotors/II.rot", "plugboards/IV.pb"], "ZZZZZZZZZZZZZZZZZZZZZZZZZZXXXXXXXXXXXXXXXXXXXXXXXXXX", "PASS"),
+  ("Rotor Cascade Test 3", "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ", ["rotors/II.rot", "rotors/II.rot", "plugboards/null.pb"], "NSPURWTYVAXCZEBGDIFKHMJOLQROTQVSXUZWBYDAFCHEJGLINKPM", "PASS"),
+  ("Rotor Cascade Test 4", "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ", ["rotors/II.rot", "rotors/II.rot", "plugboards/III.pb"], "NQLWRUTCKVIYUEBGFXDKMJHRPSROPSVQIWGZBCQAFYMEHGNXLVTJ", "PASS"),
+  ("Rotor Cascade Test 5", "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ", ["rotors/VI.rot", "rotors/IV.rot", "plugboards/II.pb"], "MGDSBKVCZTGFAGSJKPFDIZGIGMFHLWODQOXBJBWIPZHQMCZUDJSN", "PASS")
 ]
 
 unzip_call = Popen(["gunzip", "-c", "moby.txt.gz"], stdout=PIPE)

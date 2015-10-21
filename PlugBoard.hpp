@@ -12,7 +12,7 @@
       vector<int> map_;
     public:
       PlugBoard(string file_content, int ALPHABET_SIZE);
-      void map(char& c);
+      void map(int& c);
   };
 
 #endif

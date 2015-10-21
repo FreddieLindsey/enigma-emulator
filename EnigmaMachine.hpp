@@ -2,16 +2,25 @@
 #define EnigmaMachine_h
 
   #include <iostream>
+  #include <memory>
   #include "PlugBoard.hpp"
+  #include "Rotor.hpp"
   #include "Reflector.hpp"
 
   class EnigmaMachine {
     private:
       PlugBoard pb;
+      vector<Rotor*> rts;
       Reflector refl;
+
+      void rotor_encode_decode(int& c, bool encode_decode);
+      void rotate_rotors(void);
+      int getBaseCharacter(char& base, const char c);
+
     public:
-      EnigmaMachine(int ALPHABET_SIZE, string plugboard);
-      void receive(char& c);
+      EnigmaMachine(int ALPHABET_SIZE, string& plugboard, vector<string>& rotors);
+      ~EnigmaMachine();
+      void receive(const char c);
   };
 
 #endif
