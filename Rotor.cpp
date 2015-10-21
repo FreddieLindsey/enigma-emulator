@@ -12,7 +12,6 @@ Rotor::Rotor (string file_content, int ALPHABET_SIZE)
     getline(content, num, delim);
     int el_numero = stoi(num);
     map_[i] = el_numero;
-    cout << map_[i] << " ";
   }
 }
 
