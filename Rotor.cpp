@@ -17,21 +17,20 @@ Rotor::Rotor (string file_content, int ALPHABET_SIZE)
 }
 
 void Rotor::encode(int& c) {
-  // Intialise
-  int ALPHABET_SIZE = map_encode.size();
-
-  c = (c + map_encode[(c + offset) % ALPHABET_SIZE]) % ALPHABET_SIZE;
+  encode_decode(c, map_encode);
 }
 
 void Rotor::decode(int& c) {
-  // Intialise
-  int ALPHABET_SIZE = map_encode.size();
+  encode_decode(c, map_decode);
+}
 
-  c = (c + map_decode[(c + offset) % ALPHABET_SIZE]) % ALPHABET_SIZE;
+void Rotor::encode_decode(int& c, vector<int>& map) {
+  int map_s = map.size();
+  c = (c + map[(c + offset) % map_s] + map_s) % map_s;
 }
 
 bool Rotor::rotate (void) {
-  int ALPHABET_SIZE = map_encode.size();
-  offset = (offset + 1 + ALPHABET_SIZE) % ALPHABET_SIZE;
+  int map_s = map_encode.size();
+  offset = (offset + 1 + map_s) % map_s;
   return offset == 0;
 }

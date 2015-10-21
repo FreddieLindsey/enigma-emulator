@@ -13,6 +13,8 @@
       vector<int> map_decode;
       int offset;
 
+      void encode_decode(int&c, vector<int>& map);
+
     public:
       Rotor(string file_content, int ALPHABET_SIZE);
       void encode(int& c);
