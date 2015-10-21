@@ -15,7 +15,7 @@
 
       void rotor_encode_decode(int& c, bool encode_decode);
       void rotate_rotors(void);
-      void getBaseCharacter(char& base, const char c);
+      int getBaseCharacter(char& base, const char c);
 
     public:
       EnigmaMachine(int ALPHABET_SIZE, string& plugboard, vector<string>& rotors);

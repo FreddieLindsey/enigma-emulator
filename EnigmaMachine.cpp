@@ -15,9 +15,8 @@ EnigmaMachine::~EnigmaMachine() {
 
 void EnigmaMachine::receive(const char c) {
   char base_letter;
-  getBaseCharacter(base_letter, c);
-  if (base_letter == '!') return; // TODO: Use exception handling
-  int char_no = c - base_letter;
+  int char_no = getBaseCharacter(base_letter, c);
+  if (char_no == -1) return; // TODO: Use exception handling
 
   // FORWARDS DIRECTION OF TRAVEL
   pb.map(char_no);
@@ -63,14 +62,14 @@ void EnigmaMachine::rotate_rotors(void) {
   }
 }
 
-void EnigmaMachine::getBaseCharacter(char& base, const char c) {
+int EnigmaMachine::getBaseCharacter(char& base_letter, const char c) {
   // Determine letter case and validity
   if (c >= 'A' && c <= 'Z') {
-    base = 'A';
+    base_letter = 'A';
+    return c - base_letter;
   } else if (c >= 'a' && c <= 'z') {
-    base = 'a';
-  } else {
-    base = '!';
+    base_letter = 'a';
+    return c - base_letter;
   }
-  return;
+  return -1;
 }
