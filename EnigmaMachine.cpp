@@ -60,9 +60,7 @@ void EnigmaMachine::rotor_encode_decode(int& c, bool encode_decode) {
 void EnigmaMachine::rotate_rotors(void) {
   vector<Rotor*>::iterator iter = rts.begin();
 
-  bool rotate_next = true;
-  while (iter != rts.end() && rotate_next) {
-    rotate_next = (*iter)->rotate();
+  while (iter != rts.end() && (*iter)->rotate()) {
     iter++;
   }
 }
