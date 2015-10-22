@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
 
   // ASSUMED PARAMETERS AND INIT
   #define ALPHABET_SIZE 26
-  string file_content;
+  string plugboard;
 
   // Get information about the rotors
   vector<string> rotors(argc - 2);
@@ -21,8 +21,8 @@ int main(int argc, char **argv) {
   }
 
   // // Create an empty Enigma Machine
-  get_string_from_file(argv[argc - 1], file_content);
-  shared_ptr<EnigmaMachine> em (new EnigmaMachine(ALPHABET_SIZE, file_content, rotors));
+  get_string_from_file(argv[argc - 1], plugboard);
+  shared_ptr<EnigmaMachine> em (new EnigmaMachine(ALPHABET_SIZE, plugboard, rotors));
 
   // Send each character from STD IN to the EnigmaMachine to process
   char c;
@@ -40,7 +40,7 @@ void get_string_from_file(char* filename, string& out) {
   // Initialise
   ifstream file_input(filename);
 
-  // Ensure the plugboard could be opened
+  // Ensure the file could be opened
   if (!file_input.is_open()) {
     cout << filename << " could not be opened. Does it exist? Is it an alien?" << endl;
     exit(1);
