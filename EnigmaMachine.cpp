@@ -18,7 +18,10 @@ void EnigmaMachine::receive(const char c) {
   try {
     char_no = getBaseCharacter(base_letter, c);
   } catch (int n) {
-    if (n == 1) return; // INVALID character left untouched
+    if (n == -1) {
+      cout << c;
+      return; // INVALID character left untouched
+    }
     cout << "UNKNOWN EXCEPTION OCCURRED" << endl;
     exit(2);
   }
@@ -49,11 +52,8 @@ void EnigmaMachine::rotor_encode_decode(int& c, bool encode_decode) {
   vector<Rotor*>::iterator iter = encode_decode ? rts.begin() : rts.end() - 1;
 
   while (iter >= rts.begin() && iter < rts.end()) {
-    if(encode_decode) {
-      (*iter)->encode(c); iter++;
-    } else {
-      (*iter)->decode(c); iter--;
-    }
+    (*iter)->encode_decode(c, encode_decode);
+    iter += encode_decode ? 1 : -1;
   }
 }
 
@@ -76,5 +76,5 @@ int EnigmaMachine::getBaseCharacter(char& base_letter, const char c) {
     base_letter = 'a';
     return c - base_letter;
   }
-  throw 1;
+  throw -1;
 }

@@ -16,15 +16,8 @@ Rotor::Rotor (string file_content, int ALPHABET_SIZE)
   }
 }
 
-void Rotor::encode(int& c) {
-  encode_decode(c, map_encode);
-}
-
-void Rotor::decode(int& c) {
-  encode_decode(c, map_decode);
-}
-
-void Rotor::encode_decode(int& c, vector<int>& map) {
+void Rotor::encode_decode(int& c, bool encode_decode) {
+  vector<int>& map = encode_decode ? map_encode : map_decode;
   int map_s = map.size();
   c = (c + map[(c + offset) % map_s] + map_s) % map_s;
 }
