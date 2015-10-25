@@ -10,7 +10,7 @@
   class EnigmaMachine {
     private:
       PlugBoard pb;
-      vector<Rotor*> rts;
+      vector<shared_ptr<Rotor>> rts;
       Reflector refl;
 
       void rotor_encode_decode(int& c, bool encode_decode);
