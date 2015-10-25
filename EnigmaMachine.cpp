@@ -3,15 +3,11 @@
 EnigmaMachine::EnigmaMachine(int ALPHABET_SIZE, string& plugboard, vector<string>& rotors)
   : pb(plugboard, ALPHABET_SIZE), rts(rotors.size()), refl(ALPHABET_SIZE) {
   for (size_t i = 0; i < rts.size(); i++) {
-    rts[i] = new Rotor(rotors[i], ALPHABET_SIZE);
+    rts[i] = make_shared<Rotor>(rotors[i], ALPHABET_SIZE);
   }
 }
 
-EnigmaMachine::~EnigmaMachine() {
-  for (size_t i = 0; i < rts.size(); i++) {
-    delete(rts[i]);
-  }
-}
+EnigmaMachine::~EnigmaMachine() {}
 
 void EnigmaMachine::receive(const char c) {
   char base_letter; int char_no;
@@ -49,7 +45,7 @@ void EnigmaMachine::receive(const char c) {
 }
 
 void EnigmaMachine::rotor_encode_decode(int& c, bool encode_decode) {
-  vector<Rotor*>::iterator iter = encode_decode ? rts.begin() : rts.end() - 1;
+  vector<shared_ptr<Rotor>>::iterator iter = encode_decode ? rts.begin() : rts.end() - 1;
 
   while (iter >= rts.begin() && iter < rts.end()) {
     (*iter)->encode_decode(c, encode_decode);
@@ -58,7 +54,7 @@ void EnigmaMachine::rotor_encode_decode(int& c, bool encode_decode) {
 }
 
 void EnigmaMachine::rotate_rotors(void) {
-  vector<Rotor*>::iterator iter = rts.begin();
+  vector<shared_ptr<Rotor>>::iterator iter = rts.begin();
 
   while (iter != rts.end() && (*iter)->rotate()) {
     iter++;

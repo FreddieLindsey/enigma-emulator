@@ -14,14 +14,14 @@ int main(int argc, char **argv) {
   #define ALPHABET_SIZE 26
   string plugboard;
 
-  // Get information about the rotors
+  // Get information about the rotors and plugboard
   vector<string> rotors(argc - 2);
   for (size_t i = 0; i < rotors.size(); i++) {
     get_string_from_file(argv[i+1], rotors[i]);
   }
+  get_string_from_file(argv[argc - 1], plugboard);
 
   // // Create an empty Enigma Machine
-  get_string_from_file(argv[argc - 1], plugboard);
   shared_ptr<EnigmaMachine> em (new EnigmaMachine(ALPHABET_SIZE, plugboard, rotors));
 
   // Send each character from STD IN to the EnigmaMachine to process
