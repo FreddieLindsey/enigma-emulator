@@ -6,7 +6,7 @@ ROTORS=$(ls rotors/*.rot)
 COMMAND="echo -e \"$TESTDATA\" | ./enigma "
 
 ROTOR_COUNT=0
-for i in `seq 1 1000`; do
+for i in `seq 1 1460`; do
   for j in ${ROTORS[@]}; do
     COMMAND+=" $j"
     ROTOR_COUNT=$((ROTOR_COUNT + 1))
@@ -14,10 +14,22 @@ for i in `seq 1 1000`; do
 done
 COMMAND+=" plugboards/I.pb"
 
+if [[ $ROTOR_COUNT > $(($(getconf ARG_MAX) / 32)) ]]; then
+  ROTOR_COUNT=$(($(getconf ARG_MAX) / 32))
+fi
 echo -e "Rotor count:\t$ROTOR_COUNT"
 
 make clean 1>/dev/null
 make 1>/dev/null
 COMMAND=$(echo -e $COMMAND)
 
-time { eval $COMMAND; }
+BOB=date
+OS=$(uname)
+if [[ $OS == 'Darwin' ]]; then
+  BOB=gdate
+fi
+
+T=$($BOB +%s%6N)
+eval $COMMAND
+T_=$($BOB +%s%6N)
+echo -e "Time taken:\t0.$((T_ - T)) seconds"
