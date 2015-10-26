@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
 TESTDATA="TEST DATA TEST DATA TEST DATA TEST DATA"
-INPUTS=()
 ROTORS=$(ls rotors/*.rot)
 COMMAND="echo -e \"$TESTDATA\" | ./enigma "
 
 ROTOR_COUNT=0
-for i in `seq 1 1460`; do
+for i in `seq 1 1400`; do
   for j in ${ROTORS[@]}; do
     COMMAND+=" $j"
     ROTOR_COUNT=$((ROTOR_COUNT + 1))
