@@ -13,7 +13,6 @@
     public:
       PlugBoard(string file_content, int ALPHABET_SIZE);
       void map(int& c);
-      bool inRange(int& c);
   };
 
 #endif

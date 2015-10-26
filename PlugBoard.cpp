@@ -16,12 +16,8 @@ PlugBoard::PlugBoard(string file_content, int ALPHABET_SIZE)
 
   // Process string
   while (getline(content, num1, delim) && getline(content, num2, delim)) {
-    int uno = stoi(num1);
-    int dos = stoi(num2);
-    if (!inRange(uno) || !inRange(dos)) {
-      cerr << "Read invalid values in PlugBoard config" << endl;
-      exit(1);
-    }
+    int uno = stoi(num1) % map_.size();
+    int dos = stoi(num2) % map_.size();
     map_[uno] = dos;
     map_[dos] = uno;
   }
@@ -29,8 +25,4 @@ PlugBoard::PlugBoard(string file_content, int ALPHABET_SIZE)
 
 void PlugBoard::map(int& c) {
   c = map_[c];
-}
-
-bool PlugBoard::inRange(int& c) {
-  return (0 <= c && c < (int) map_.size());
 }
