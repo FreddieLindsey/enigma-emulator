@@ -5,11 +5,10 @@ Rotor::Rotor (string file_content)
   // Initialise
   istringstream content(file_content);
   string num;
-  char delim = ' ';
 
   // Set map to input file given
   for (int i = 0; i < ALPHABET_SIZE; i++) {
-    getline(content, num, delim);
+    getline(content, num, INPUT_DELIM);
     int diff = stoi(num) - i;
     map_encode[i] = diff;
     map_decode[i + diff] = - diff;
