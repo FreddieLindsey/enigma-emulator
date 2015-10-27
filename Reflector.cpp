@@ -1,7 +1,5 @@
 #include "Reflector.hpp"
 
-Reflector::Reflector(void) : map_size(ALPHABET_SIZE) {}
-
 void Reflector::reflect(int& c) {
-  c = (c + (map_size / 2)) % map_size;
+  c = (c + (ALPHABET_SIZE / 2)) % ALPHABET_SIZE;
 }

@@ -4,11 +4,7 @@
   #include "Constants.hpp"
 
   class Reflector {
-    private:
-      int map_size;
-
     public:
-      Reflector(void);
       void reflect(int& c);
   };
 

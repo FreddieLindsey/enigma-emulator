@@ -18,12 +18,10 @@ Rotor::Rotor (string file_content)
 
 void Rotor::encode_decode(int& c, bool encode_decode) {
   vector<int>& map = encode_decode ? map_encode : map_decode;
-  int map_s = map.size();
-  c = (c + map[(c + offset) % map_s] + map_s) % map_s;
+  c = (c + map[(c + offset) % ALPHABET_SIZE] + ALPHABET_SIZE) % ALPHABET_SIZE;
 }
 
 bool Rotor::rotate (void) {
-  int map_s = map_encode.size();
-  offset = (offset + 1 + map_s) % map_s;
+  offset = (offset + 1 + ALPHABET_SIZE) % ALPHABET_SIZE;
   return offset == 0;
 }

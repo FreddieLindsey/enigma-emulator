@@ -10,14 +10,14 @@ PlugBoard::PlugBoard(string file_content)
   char delim = ' ';
 
   // Reset map
-  for (size_t i = 0; i < map_.size(); i++) {
+  for (size_t i = 0; i < ALPHABET_SIZE; i++) {
     map_[i] = i;
   }
 
   // Process string
   while (getline(content, num1, delim) && getline(content, num2, delim)) {
-    int uno = stoi(num1) % map_.size();
-    int dos = stoi(num2) % map_.size();
+    int uno = stoi(num1) % ALPHABET_SIZE;
+    int dos = stoi(num2) % ALPHABET_SIZE;
     map_[uno] = dos;
     map_[dos] = uno;
   }
