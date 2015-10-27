@@ -4,6 +4,7 @@
   #include <iostream>
   #include <sstream>
   #include <vector>
+  #include "Constants.hpp"
 
   using namespace std;
 
@@ -11,7 +12,7 @@
     private:
       vector<int> map_;
     public:
-      PlugBoard(string file_content, int ALPHABET_SIZE);
+      PlugBoard(string file_content);
       void map(int& c);
   };
 

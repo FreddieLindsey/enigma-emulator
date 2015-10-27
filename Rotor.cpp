@@ -1,6 +1,6 @@
 #include "Rotor.hpp"
 
-Rotor::Rotor (string file_content, int ALPHABET_SIZE)
+Rotor::Rotor (string file_content)
   : map_encode(ALPHABET_SIZE), map_decode(ALPHABET_SIZE), offset(0) {
   // Initialise
   istringstream content(file_content);

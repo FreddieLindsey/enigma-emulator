@@ -2,7 +2,7 @@
 
 using namespace std;
 
-PlugBoard::PlugBoard(string file_content, int ALPHABET_SIZE)
+PlugBoard::PlugBoard(string file_content)
   : map_(ALPHABET_SIZE) {
   // Initialise
   istringstream content(file_content);

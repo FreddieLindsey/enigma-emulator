@@ -1,12 +1,14 @@
 #ifndef Reflector_h
 #define Reflector_h
 
+  #include "Constants.hpp"
+
   class Reflector {
     private:
       int map_size;
 
     public:
-      Reflector(int ALPHABET_SIZE);
+      Reflector(void);
       void reflect(int& c);
   };
 

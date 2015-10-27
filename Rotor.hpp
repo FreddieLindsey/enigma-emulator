@@ -4,6 +4,7 @@
   #include <iostream>
   #include <sstream>
   #include <vector>
+  #include "Constants.hpp"
 
   using namespace std;
 
@@ -14,7 +15,7 @@
       int offset;
 
     public:
-      Rotor(string file_content, int ALPHABET_SIZE);
+      Rotor(string file_content);
       void encode_decode(int&c, bool encode_decode);
       bool rotate(void);
   };

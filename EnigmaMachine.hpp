@@ -18,7 +18,7 @@
       int getBaseCharacter(char& base, const char c);
 
     public:
-      EnigmaMachine(int ALPHABET_SIZE, string& plugboard, vector<string>& rotors);
+      EnigmaMachine(string& plugboard, vector<string>& rotors);
       ~EnigmaMachine();
       void receive(const char c);
   };

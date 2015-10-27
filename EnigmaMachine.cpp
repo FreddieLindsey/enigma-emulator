@@ -1,9 +1,9 @@
 #include "EnigmaMachine.hpp"
 
-EnigmaMachine::EnigmaMachine(int ALPHABET_SIZE, string& plugboard, vector<string>& rotors)
-  : pb(plugboard, ALPHABET_SIZE), rts(rotors.size()), refl(ALPHABET_SIZE) {
+EnigmaMachine::EnigmaMachine(string& plugboard, vector<string>& rotors)
+  : pb(plugboard), rts(rotors.size()), refl() {
   for (size_t i = 0; i < rts.size(); i++) {
-    rts[i] = make_shared<Rotor>(rotors[i], ALPHABET_SIZE);
+    rts[i] = make_shared<Rotor>(rotors[i]);
   }
 }
 
