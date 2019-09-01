@@ -1,16 +1,16 @@
 #ifndef Main_h
 #define Main_h
 
-  // LIBRARIES
-  #include <fstream>
-  #include <memory>
+// LIBRARIES
+#include <fstream>
+#include <memory>
 
-  // CLASSES
-  #include "EnigmaMachine.hpp"
+// CLASSES
+#include "EnigmaMachine.hpp"
 
-  using namespace std;
+using namespace std;
 
-  // FUNCTIONS
-  void get_string_from_file(char* filename, string& out);
+// FUNCTIONS
+void get_string_from_file(char* filename, string& out);
 
 #endif
