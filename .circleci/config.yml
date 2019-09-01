@@ -7,6 +7,10 @@ jobs:
     steps:
       - checkout
       - run:
+          name: install
+          command: |
+            apt-get update && apt-get install make g++ python
+      - run:
           name: compile
           command: make enigma
       - run:
