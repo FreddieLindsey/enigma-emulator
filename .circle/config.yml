@@ -1,1 +1,20 @@
+version: 2
+jobs:
+  build-and-test:
+    docker:
+      - image: ubuntu:18.04
 
+    steps:
+      - checkout
+      - run:
+          name: compile
+          command: make enigma
+      - run:
+          name: test
+          command: python tests.py
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - build-and-test
