@@ -1,7 +1,7 @@
 #include "EnigmaMachine.hpp"
 
 EnigmaMachine::EnigmaMachine(string& plugboard, vector<string>& rotors)
-  : pb(plugboard), rts(rotors.size()), refl() {
+    : pb(plugboard), rts(rotors.size()), refl() {
   for (size_t i = 0; i < rts.size(); i++) {
     rts[i] = make_shared<Rotor>(rotors[i]);
   }
@@ -10,13 +10,14 @@ EnigmaMachine::EnigmaMachine(string& plugboard, vector<string>& rotors)
 EnigmaMachine::~EnigmaMachine() {}
 
 void EnigmaMachine::receive(const char c) {
-  char base_letter; int char_no;
+  char base_letter;
+  int char_no;
   try {
     char_no = getBaseCharacter(base_letter, c);
   } catch (int n) {
     if (n == -1) {
       cout << c;
-      return; // INVALID character left untouched
+      return;  // INVALID character left untouched
     }
     cout << "UNKNOWN EXCEPTION OCCURRED" << endl;
     exit(2);
@@ -45,7 +46,8 @@ void EnigmaMachine::receive(const char c) {
 }
 
 void EnigmaMachine::rotor_encode_decode(int& c, bool encode_decode) {
-  vector<shared_ptr<Rotor>>::iterator iter = encode_decode ? rts.begin() : rts.end() - 1;
+  vector<shared_ptr<Rotor>>::iterator iter =
+      encode_decode ? rts.begin() : rts.end() - 1;
 
   while (iter >= rts.begin() && iter < rts.end()) {
     (*iter)->encode_decode(c, encode_decode);
@@ -70,5 +72,5 @@ int EnigmaMachine::getBaseCharacter(char& base_letter, const char c) {
     base_letter = 'a';
     return c - base_letter;
   }
-  throw -1;
+  throw - 1;
 }
